@@ -1,2 +1,3 @@
-# rush-rush-rush
-:boom:
+# Headline
+
+> An awesome project.
