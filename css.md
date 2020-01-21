@@ -92,7 +92,7 @@ dispaly：inline-block；
 
 
 
-- 父子盒子
+- 父子盒子s
 
 `父盒子`：添加`padding`或者`border`
 
@@ -105,3 +105,37 @@ dispaly：inline-block；
 [参考１](http://47.100.243.94:3006/main/essay/5e1979c9e1b8e00fd9333cd9)
 
 [参考２](https://blog.csdn.net/sinat_36422236/article/details/88763187)
+
+
+
+## 层叠上下文
+
+> 归结还是`z-index`的原因
+
+### 触发条件
+
+- `position` + `z-index`
+- 父元素`display: flex | inner-flex`，子元素`z-index` !== `auto`
+- `opacity` !== 0
+- `transform` !== none
+- `mix-blend-mode` !== nomal
+- `isolation` : isolate
+- `will-change`
+- `-webkit-overflow-scrolling`: touch
+
+### 顺序
+
+> 是**触发**了层叠上下文的元素才会有这个等级
+
+![](http://47.100.243.94:3011/uploads/1578817532279.png)
+
+[more](https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/)     [codepen](https://codepen.io/kano233333/pen/OJPZagr)
+
+## 搞事的transform
+
+- 层叠上下文--->提升元素垂直地位
+- 限制`position:fixed`追随效果
+- 添加transform有添加`position`的效果--->受到`overflow`的限制  +   将子元素width:100%是父元素的width
+
+[codepen](https://codepen.io/kano233333/pen/dyPeawN)
+
